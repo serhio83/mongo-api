@@ -4,6 +4,8 @@ RELEASE?=0.0.1
 COMMIT?=$(shell git rev-parse --short HEAD)
 BUILD_TIME?=$(shell date -u '+%Y-%m-%d_%H:%M:%S')
 PROJECT?=github.com/serhio83/mongo-api/pkg
+GOOS?=linux
+GOARCH?=amd64
 
 clean:
 	rm -f ${APP}
