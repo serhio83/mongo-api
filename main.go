@@ -14,7 +14,7 @@ import (
 
 func main() {
 	log.Printf(
-		"Starting the service...\ncommit: %s, build time: %s, release: %s",
+		"Starting the service... commit: %s, build time: %s, release: %s",
 		version.Commit, version.BuildTime, version.Release,
 	)
 
@@ -43,7 +43,7 @@ func main() {
 			log.Printf("%v", err)
 		}
 	}()
-	log.Print("The service is ready to listen and serve.")
+	log.Printf("The service is listen on http://0.0.0.0:%v/", port)
 
 	select {
 	case killSignal := <-interrupt:
