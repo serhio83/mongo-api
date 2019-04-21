@@ -14,5 +14,11 @@ build: clean
 		-X ${PROJECT}/version.Commit=${COMMIT} -X ${PROJECT}/version.BuildTime=${BUILD_TIME}" \
 		-o ${APP}
 
-run: build
-	PORT=${PORT} ./${APP}
+container: build
+	docker build -t $(APP):$(RELEASE) .
+
+run: container
+	docker stop $(APP):$(RELEASE) || true && docker rm $(APP):$(RELEASE) || true
+	docker run --name ${APP} -p ${PORT}:${PORT} --rm \
+		-e "PORT=${PORT}" \
+		$(APP):$(RELEASE)
