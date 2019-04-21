@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
 	"os"
@@ -10,7 +11,7 @@ import (
 )
 
 func main() {
-	log.Printf("Starting the service...\ncommit: %s, build time: %s, release: %s",
+	fmt.Printf("Starting the service...\ncommit: %s, build time: %s, release: %s\n",
 		version.Commit, version.BuildTime, version.Release)
 
 	port := os.Getenv("PORT")
@@ -19,7 +20,6 @@ func main() {
 	}
 
 	r := handlers.Router()
-	log.Print("The service is ready to listen and serve.")
+	log.Printf("The service is listen on port: %s", port)
 	log.Fatal(http.ListenAndServe(":"+port, r))
 }
-
