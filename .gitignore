@@ -10,3 +10,4 @@ server.log
 config.toml
 api
 vendor
+mongo-api
