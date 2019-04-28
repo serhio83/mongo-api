@@ -1,5 +1,7 @@
 # mongo-api
 
+kubernetes ready service
+
 #### build:
 ```
 make build
