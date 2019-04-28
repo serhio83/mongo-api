@@ -16,3 +16,8 @@ make container
 ```
 make run
 ```
+
+#
+todo:
+* consul discovery examples:
+https://github.com/devguo/consul_example
